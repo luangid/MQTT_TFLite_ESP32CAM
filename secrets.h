@@ -1,6 +1,7 @@
 #include <pgmspace.h>
 
 #define SECRET
+//número referente a câmera específica
 #define THINGNAME "ESPCAM-3"
 
 const char *WL_SSID = "IFPR-ADM";
