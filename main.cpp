@@ -30,6 +30,7 @@
 #define wf WiFi
 
 uint8_t errorCount = 0;
+//modificar números detendendo da câmera
 const char *ESP32CAM_PUBLISH_TOPIC = "cam/3";
 const char *ESP32CAM_SUBSCRIBE_TOPIC = "cam/3/msg";
 const char *ESP32_SAVER_PUBLICSH_TOPIC = "saver/detect/pic";
