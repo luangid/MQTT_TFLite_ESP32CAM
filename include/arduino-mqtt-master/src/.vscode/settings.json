@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "packet.h": "c",
+        "helpers.h": "c",
+        "lwmqtt.h": "c"
+    }
+}
