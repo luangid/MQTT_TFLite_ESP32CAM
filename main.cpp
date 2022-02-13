@@ -200,38 +200,6 @@ bool copyPictureTF()
       }
     }
   }
-  /*
-   char str[128];
-  for (int y = 0; y < 96; y += 4) {
-  int pos = 0;
-  memset(str, 0, sizeof(str));
-  for (int x = 0; x < 96; x += 2) {
-    int getPos = y * 96 + x;
-    int color = data[getPos];
-
-    if (color > 224) {
-      str[pos] = ' ';
-    } else if (color > 192) {
-      str[pos] = '-';
-    } else if (color > 160) {
-      str[pos] = '+';
-    } else if (color > 128) {
-      str[pos] = '=';
-    } else if (color > 96) {
-      str[pos] = '*';
-    } else if (color > 64) {
-      str[pos] = 'H';
-    } else if (color > 32) {
-      str[pos] = '#';
-    } else {
-      str[pos] = 'M';
-    }
-
-    pos++;
-  }
-  debugln(str);
-  }
-  */
   return true;
 }
 
@@ -245,7 +213,6 @@ void encodeTask(void *arg)
     bufCount = 0;
     if (isStreaming)
     {
-      // xSemaphoreTake(semaphoroCamera, portMAX_DELAY);
       fb = esp_camera_fb_get();
       if (b)
       {
@@ -265,7 +232,6 @@ void encodeTask(void *arg)
         b = true;
         bufCount = 1;
       }
-      // xSemaphoreGive(semaphoroCamera);
       xQueueSend(queueBuffer, &bufCount, 0);
     }
     else
@@ -366,7 +332,6 @@ void detectionTask(void *arg)
     {
       error_reporter->Report("Invoke failed.");
     }
-    // Process the inference results.
     person_score = output->data.uint8[kPersonIndex];
     no_person_score = output->data.uint8[kNotAPersonIndex];
     RespondToDetection(error_reporter, person_score, no_person_score);
